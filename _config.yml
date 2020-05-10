@@ -32,7 +32,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
-
+github_editme_path: jhinchoh/jhinchoh.github.io/
 google_analytics: UA-3596974-2
 
 # Exclude from processing.
