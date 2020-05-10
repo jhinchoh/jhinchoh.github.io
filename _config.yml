@@ -28,7 +28,7 @@ twitter_username: woodenkids
 github_username:  jhinchoh
 
 # Build settings
-theme: jekyll-theme-dinky
+theme: minima
 plugins:
   - jekyll-feed
 
