@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Jekyll
+_site
+
+# Mac
+.DS_store
