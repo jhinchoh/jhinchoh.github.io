@@ -1,0 +1,133 @@
+### OG: 20210123 - (RESEARCH) WNV prediction NN dropout and RMSprop (NN v1)
+https://www.kaggle.com/jhinchoh/wnv-prediction-nn-v1
+
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('../../../data_other/kaggle_data/predict_west_nile_virus/result_log_20210123.csv',header=None,delimiter=':')
+df.reset_index(inplace=True)
+df.columns = ['group','name','value']
+df['group'] = df['group'] // 3
+
+df = df.pivot(index='group', columns='name', values='value') \
+       .reset_index().rename_axis(None, axis=1).drop('group',axis=1).set_index('Params')
+
+display(df)
+df.columns = ['Train AUC','Valid AUC']
+df = df.astype('float')
+df.plot()
+plt.xticks(rotation=90)
+plt.show()
+```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Train AUC</th>
+      <th>Valid AUC</th>
+    </tr>
+    <tr>
+      <th>Params</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hidden=600,dropout=0.1,epochs=600,RMSprop(same)</th>
+      <td>0.9280070066452026</td>
+      <td>0.861641526222229</td>
+    </tr>
+    <tr>
+      <th>dropout=0.11,RMSprop(same)</th>
+      <td>0.9206472635269165</td>
+      <td>0.8672357201576233</td>
+    </tr>
+    <tr>
+      <th>dropout=0.12,RMSprop(same)</th>
+      <td>0.913246750831604</td>
+      <td>0.8710764646530151</td>
+    </tr>
+    <tr>
+      <th>dropout=0.13,RMSprop(same)</th>
+      <td>0.9048059582710266</td>
+      <td>0.8747115135192871</td>
+    </tr>
+    <tr>
+      <th>dropout=0.14,RMSprop(same)</th>
+      <td>0.896899938583374</td>
+      <td>0.877453088760376</td>
+    </tr>
+    <tr>
+      <th>dropout=0.15,RMSprop(same)</th>
+      <td>0.8903208374977112</td>
+      <td>0.8785104751586914</td>
+    </tr>
+    <tr>
+      <th>dropout=0.16,RMSprop(same)</th>
+      <td>0.8854881525039673</td>
+      <td>0.8779109716415405</td>
+    </tr>
+    <tr>
+      <th>dropout=0.17,RMSprop(same)</th>
+      <td>0.8791780471801758</td>
+      <td>0.8785998821258545</td>
+    </tr>
+    <tr>
+      <th>dropout=0.18,RMSprop(same)</th>
+      <td>0.8759890794754028</td>
+      <td>0.8788924217224121</td>
+    </tr>
+    <tr>
+      <th>dropout=0.19,RMSprop(same)</th>
+      <td>0.8705443143844604</td>
+      <td>0.8787546753883362</td>
+    </tr>
+    <tr>
+      <th>hidden=600,dropout=0.2,epochs=600,RMSprop(rho=0.9,momentum=0.1,epsilon=1e-07)</th>
+      <td>0.8648933172225952</td>
+      <td>0.8800066709518433</td>
+    </tr>
+    <tr>
+      <th>hidden=600,dropout=0.2,epochs=600</th>
+      <td>0.8776274919509888</td>
+      <td>0.8820720911026001</td>
+    </tr>
+    <tr>
+      <th>hidden=600,dropout=0.1,epochs=600</th>
+      <td>0.9409108757972717</td>
+      <td>0.8464521765708923</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+    
+![png](/img/log_20210123_output_1.png)
+    
+
+
+
+```python
+
+```
