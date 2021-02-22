@@ -10,7 +10,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.0.0"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.5"
-# Dependabot cannot update to the required version as there is already an existing pull request for the latest version
+# Upgrade kramdown to version 2.3.0 or later. For example:
 gem "kramdown", ">= 2.3.0"
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
